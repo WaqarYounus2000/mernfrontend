@@ -1,0 +1,49 @@
+.TodsTitleBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #102C57;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    flex-direction: column;
+    color: white;
+}
+
+
+.OrderListClass {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: initial;
+}
+
+.UserAccountInfo{
+    margin-top: 1%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-direction: column;
+    /* border: 2px solid red; */
+    width: 95vw;
+}
+.fullwidth{
+    width: 50vw;
+}
+.currentUser{
+    margin: 0 5px 0 0;
+}
+
+@media only screen and (max-width: 600px) {  
+    .fullwidth{
+        width: 95vw;
+    }
+    
+  }
+
+ 

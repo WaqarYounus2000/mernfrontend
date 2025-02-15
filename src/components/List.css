@@ -1,0 +1,122 @@
+.OuterDivClassList {
+    width: 95%;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    margin: 12px 0px;
+    row-gap: 5px;
+   
+   
+
+}
+
+.DivClassList {
+    width: 99%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 2.5rem;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    
+    padding: 1.5rem;
+    border-left: 2px solid #102C57;
+    font-weight: 500;
+}
+
+.completed {
+    font-style: italic;
+    text-decoration: line-through;
+    color: rgb(114, 114, 114);
+    cursor: grab;
+}
+
+.disabled {
+    color: rgb(114, 114, 114);
+
+}
+
+.notcompleted {
+    font-style: italic;
+    /* text-decoration: line-through; */
+}
+
+.TodoPara {
+    margin: 0;
+    padding: 0;
+}
+
+.listButtons {
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.ButtonSpan {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.IconsAct {
+    margin: 0 10px;
+}
+
+.IconsAct:hover {
+    cursor: pointer;
+    color: #102C57;
+    transition: 0.2s all linear;
+}
+
+/* 
+.completedButton:hover {
+    color: green;
+    transition: 0.2s all linear;
+}
+
+.deleted:hover {
+    transition: 0.2s all linear;
+    color: red;
+}
+
+.modify:hover {
+    color: orange;
+    transition: 0.2s all linear;
+} */
+
+.actionButtonDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .DivClassList {
+        height: auto;
+        flex-direction: column;
+        padding: 0.5rem;
+        text-wrap: wrap;
+        word-break: break-all;
+        overflow: hidden;
+
+    }
+
+    .actionButtonDiv {
+        margin-top: 10px;
+    }
+
+    .TodoPara {
+        width: 80vw;
+    }
+
+
+}
+
+
+
+
+
+
+
