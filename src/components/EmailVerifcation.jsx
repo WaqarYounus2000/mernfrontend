@@ -4,6 +4,7 @@ import { postDataByAxios } from "../axios/axiosConfig"
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import VerifiedIcon from '@mui/icons-material/Verified';
+
 import CircularProgress from '@mui/material/CircularProgress';
 import './emailverfication.css'
 
