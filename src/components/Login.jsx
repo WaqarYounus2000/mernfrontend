@@ -70,7 +70,7 @@ const Login = () => {
         e.preventDefault();
         settoggle(true)
 
-        const response = await postDataByAxios(`${process.env.REACT_APP_BACKEND_API}login`, userDetails)
+        const response = await postDataByAxios(`${process.env.REACT_APP_BACKEND_API}/login`, userDetails)
 
 
 
