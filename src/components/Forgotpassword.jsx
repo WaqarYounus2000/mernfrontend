@@ -48,14 +48,30 @@ const Forgotpass = () => {
         try {
             const response = await postDataByAxios(`${process.env.REACT_APP_BACKEND_API}/forgetpassword`, { userEmail })
             console.log(response)
-            settoggle(false)
-            setuserEmail('')
-            alert(`Password Reset Link Is sent to: ${userEmail}`)
-            navigate("/")
+            if (response.status === 500) {
+                alert(response?.data.message)
+                return
+            }
+            if (response.status === 404) {
+                alert(response?.data.message)
+                return
+            }
+            if (response.status === 200) {
+                settoggle(false)
+                setuserEmail('')
+                alert(response?.data.message)
+                navigate("/")
+            }
+
+
 
 
         } catch (error) {
-            if (error?.response?.statusText === "Not Found") {
+            if (error?.response?.status === 404) {
+                alert(response?.data.message)
+                return
+            }
+            if (error?.response?.status === 500) {
                 alert(error.response?.data?.message)
                 settoggle(false)
             }
