@@ -47,9 +47,10 @@ const Forgotpass = () => {
 
         try {
             const response = await postDataByAxios(`${process.env.REACT_APP_BACKEND_API}/forgetpassword`, { userEmail })
-            alert(`Password Reset Link Is sent to: ${userEmail}`)
+            console.log(response)
             settoggle(false)
             setuserEmail('')
+            alert(`Password Reset Link Is sent to: ${userEmail}`)
             navigate("/")
 
 
