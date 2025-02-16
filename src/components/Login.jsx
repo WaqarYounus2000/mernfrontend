@@ -60,6 +60,7 @@ const Login = () => {
 
 
     const handleLogin = async (e) => {
+        console.log("login....")
 
         if (userDetails.email === '' || userDetails.password === '') {
             // alert("Fill all the fields!")
