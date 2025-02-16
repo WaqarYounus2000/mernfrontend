@@ -178,7 +178,7 @@ const MyHome = () => {
 
             const response = await postDataByAxios(`${process.env.REACT_APP_BACKEND_API}/logout`, {})
 
-            if (response.statusText === "OK") {
+            if (response.statusText === "OK" || response.status === 2000) {
 
                 navigate("/")
             }
