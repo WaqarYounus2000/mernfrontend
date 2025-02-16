@@ -68,16 +68,11 @@ const Login = () => {
             return
         }
 
-        console.log("first....")
 
         e.preventDefault();
         settoggle(true)
-        console.log("second....")
-        console.log(userDetails)
 
         const response = await postDataByAxios(`${process.env.REACT_APP_BACKEND_API}/login`, userDetails)
-        console.log(response)
-        console.log("third....")
 
 
 
