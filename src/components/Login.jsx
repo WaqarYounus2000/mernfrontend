@@ -81,14 +81,21 @@ const Login = () => {
 
 
 
-        if (response.statusText === "Unauthorized") {
+        if (response.statusText === "Internal Server Error" || response.status === 500) {
 
             showSnackbar(response.data.message, "error")
             settoggle(false)
             return
 
         }
-        if (response.statusText === "Not Found") {
+        if (response.statusText === "Unauthorized" || response.status === 401) {
+
+            showSnackbar(response.data.message, "error")
+            settoggle(false)
+            return
+
+        }
+        if (response.statusText === "Not Found" || response.status === 404) {
 
             showSnackbar(response.data.message, "error")
             settoggle(false)
@@ -96,7 +103,7 @@ const Login = () => {
 
         }
 
-        if (response.statusText === "OK") {
+        if (response.statusText === "OK" || response.status === 200) {
             showSnackbar(response.data.message, "success")
             settoggle(false)
             Navigate("/home")
