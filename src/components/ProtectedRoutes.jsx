@@ -15,6 +15,7 @@ const ProtectedRoute = () => {
 
                 const response = await GetDataByAxios(`${process.env.REACT_APP_BACKEND_API}/auth/jwt`, { withCredentials: true })
                 const { isAuthenticated, isEmailVerified, current_user } = response?.data
+                console.log(response)
                 setCurrentUser(current_user?.email)
                 setIsLogedIn(isAuthenticated);
                 setisEmailVerified(isEmailVerified);
