@@ -118,7 +118,6 @@ const MyHome = () => {
                 const response = await postDataByAxios(`${process.env.REACT_APP_BACKEND_API}/todos`, { "task": inputData })
                 if (response.statusText === "Created" || response.status === 201) {
                     setTriggerFetch(prev => !prev)
-                    console.log("Todo Added!")
                     setinputData('')
                     showSnackbar("Todo Added! ", "success")
                 }
@@ -127,8 +126,8 @@ const MyHome = () => {
             }
         }
         else {
-            showSnackbar("Input the data! ", "error")
             setinputData('')
+            showSnackbar("Input the data! ", "error")
         }
     }
     /////////////////////////////////////////////////////////////////////////////////
@@ -136,10 +135,9 @@ const MyHome = () => {
         try {
             const response = await putDataByAxios(`${process.env.REACT_APP_BACKEND_API}/todos/${StatusDocId}`, { "completed": !currentStatus })
             if (response.statusText === "OK" || response.status === 200) {
-                // SetCurrentTodoStatus(currentStatus)
-                showSnackbar("Todo-Updated!.", "success")
                 setTriggerFetch(prev => !prev)
                 setinputData('')
+                showSnackbar("Todo-Updated!.", "success")
             }
             setToggled(false)
         } catch (e) {
@@ -149,9 +147,10 @@ const MyHome = () => {
     /////////////////////////////////////////////////////////////////////////////////
     const HandleUpdateTodo = (iD, todo, currentStatus) => {
         if (!currentStatus) {
+            // setTriggerFetch(prev => !prev)
+            setToggled(true)
             SetDid(iD)
             setinputData(todo)
-            setToggled(true)
         } else {
             showSnackbar("Cannot Update Completed Task!.", "error")
         }
@@ -164,9 +163,9 @@ const MyHome = () => {
             const response = await putDataByAxios(`${process.env.REACT_APP_BACKEND_API}/todos/${Did}`, { "task": inputData })
             setToggled(false)
             if (response.statusText === "OK" || response.status === 200) {
-                showSnackbar("Todo-Updated", "info")
                 setTriggerFetch(prev => !prev)
                 setinputData('')
+                showSnackbar("Todo-Updated", "info")
             }
         } catch (e) {
             console.error("Error adding document: ", e);
