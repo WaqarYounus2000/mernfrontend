@@ -61,7 +61,7 @@ const Forgotpass = () => {
 
         } catch (error) {
             if (error?.response?.status === 404) {
-                alert(response?.data.message)
+                alert(error?.response?.data.message)
                 return
             }
             if (error?.response?.status === 500) {
