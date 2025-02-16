@@ -15,7 +15,7 @@ const List = (props) => {
     return (
 
 
-        <Fade timeout={1000} in={true} unmountOnExit>
+        <Fade timeout={700} in={true} unmountOnExit>
             <div className='OuterDivClassList'>
 
 

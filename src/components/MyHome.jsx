@@ -53,24 +53,25 @@ const MyHome = () => {
 
 
     useEffect(() => {
-
-        const fetchData = async () => {
-            try {
-                const response = await GetDataByAxios(`${process.env.REACT_APP_BACKEND_API}/todos`)
-                SetCurrentUser(response?.data?.email)
-                SetData(response?.data.data)
-                setallData(response?.data.data)
-                const filteredValue = await response?.data.data.filter((data) => data.completed === true);
-                setFilteredData(filteredValue)
-
-            } catch (error) {
-                console.log(error)
-            }
-        }
-
+        console.log("fetching....")
         fetchData()
 
     }, [triggerFetch])
+
+
+    const fetchData = async () => {
+        try {
+            const response = await GetDataByAxios(`${process.env.REACT_APP_BACKEND_API}/todos`)
+            SetCurrentUser(response?.data?.email)
+            SetData(response?.data.data)
+            setallData(response?.data.data)
+            const filteredValue = await response?.data.data.filter((data) => data.completed === true);
+            setFilteredData(filteredValue)
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     /////////////////////////////// FOR CHECK BOX /////////////////////////////
 
