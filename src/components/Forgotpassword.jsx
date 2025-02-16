@@ -51,8 +51,8 @@ const Forgotpass = () => {
 
             if (response.status === 200) {
                 settoggle(false)
-                setuserEmail('')
                 alert(response?.data.message)
+                setuserEmail('')
                 navigate("/")
             }
 
