@@ -53,6 +53,8 @@ const MyHome = () => {
 
 
     useEffect(() => {
+
+
         console.log("fetching....")
         fetchData()
 
@@ -114,8 +116,9 @@ const MyHome = () => {
         if (inputData != '') {
             try {
                 const response = await postDataByAxios(`${process.env.REACT_APP_BACKEND_API}/todos`, { "task": inputData })
-                if (response.statusText === "Created") {
+                if (response.statusText === "Created" || response.status === 201) {
                     setTriggerFetch(prev => !prev)
+                    console.log("Todo Added!")
                     setinputData('')
                     showSnackbar("Todo Added! ", "success")
                 }
@@ -132,7 +135,7 @@ const MyHome = () => {
     const HandleUpdateTodoStatus = async (StatusDocId, currentStatus) => {
         try {
             const response = await putDataByAxios(`${process.env.REACT_APP_BACKEND_API}/todos/${StatusDocId}`, { "completed": !currentStatus })
-            if (response.statusText === "OK") {
+            if (response.statusText === "OK" || response.status === 200) {
                 // SetCurrentTodoStatus(currentStatus)
                 showSnackbar("Todo-Updated!.", "success")
                 setTriggerFetch(prev => !prev)
@@ -160,7 +163,7 @@ const MyHome = () => {
         try {
             const response = await putDataByAxios(`${process.env.REACT_APP_BACKEND_API}/todos/${Did}`, { "task": inputData })
             setToggled(false)
-            if (response.statusText === "OK") {
+            if (response.statusText === "OK" || response.status === 200) {
                 showSnackbar("Todo-Updated", "info")
                 setTriggerFetch(prev => !prev)
                 setinputData('')
