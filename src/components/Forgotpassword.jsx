@@ -48,11 +48,7 @@ const Forgotpass = () => {
         try {
             const response = await postDataByAxios(`${process.env.REACT_APP_BACKEND_API}/forgetpassword`, { userEmail })
             console.log(response)
-            
-            if (response.status === 404) {
-                alert(response?.data.message)
-                return
-            }
+
             if (response.status === 200) {
                 settoggle(false)
                 setuserEmail('')
