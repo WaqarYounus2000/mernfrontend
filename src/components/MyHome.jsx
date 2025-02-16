@@ -177,9 +177,9 @@ const MyHome = () => {
         try {
 
             const response = await postDataByAxios(`${process.env.REACT_APP_BACKEND_API}/logout`, {})
-
-            if (response.statusText === "OK" || response.status === 2000) {
-
+            console.log(response)
+            if (response.statusText === "OK" || response.status === 200) {
+                console.log("user loged out!")
                 navigate("/")
             }
         } catch (error) {
